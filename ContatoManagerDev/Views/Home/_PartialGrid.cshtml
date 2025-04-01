@@ -1,0 +1,30 @@
+﻿
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "gridContatos";
+    settings.CallbackRouteValues = new { Controller = "Contatos", Action = "Index" };
+    settings.ControlStyle.CssClass = "gridstyle";
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Nome";
+        column.Caption = "Nome";
+        column.Width = 200;
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Telefone";
+        column.Caption = "Telefone";
+        column.Width = 150;
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Email";
+        column.Caption = "Email";
+        column.Width = 250;
+    });
+
+    settings.SettingsPager.PageSize = 10;
+}).Bind(Model).GetHtml()
